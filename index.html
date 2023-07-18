@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    Gestor de Ciudades
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="shortcut icon" href="icon/mapa.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://app.embed.im/snow.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+  <!-- Seccion 1: Inicio -->
+  <section id="seccion1">
+
+    <!-- Navbar & DropDown -->
+    <nav class="navbar navbar-expand-lg">
+      <button id="changeTheme">🌘</button>
+      <a class="navbar-brand" href="#" id="title">
+        Gestor de Ciudades
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              Inicio
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#departamentos">
+              Departamentos
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#ciudades">
+              Ciudades
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Mas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">
+                Muy Pronto!
+              </a>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+
+    <!-- Video de Fondo -->
+    <div id="videoContenedor">
+      <!-- <video id="videoFondo" autoplay loop muted></video> -->
+      <div id="contenido">
+        <h1>
+          Inicio
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed omnis ratione esse. Dignissimos
+          exercitationem, eveniet enim quod optio et dolore voluptates odit, dicta asperiores fugiat quas
+          quae. Eveniet, laboriosam placeat?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="seccion2">
+    <h2>Mejores Ciudades de Colombia</h2>
+    <div class="contenedor-tarjetas">
+      <div class="tarjeta">
+        <img src="https://fondosmil.com/fondo/70680.jpg" alt="Imagen de la tarjeta">
+        <h3 id="subtitle">Bogota</h3>
+        <p id="descripcion">Bogota es la capital y la ciudad del pais.</p>
+      </div>
+
+      <div class="tarjeta">
+        <img src="https://images7.alphacoders.com/748/748567.jpg" alt="Imagen de la tarjeta">
+        <h3 id="subtitle">Medellin</h3>
+        <p id="descripcion">Es la segunda ciudad mas grande del pais.</p>
+      </div>
+
+      <div class="tarjeta">
+        <img src="https://th.bing.com/th/id/OIP.lJi4CjTje41FVsiN-xW2CAHaE7?w=261&h=180&c=7&r=0&o=5&pid=1.7"
+          alt="Imagen de la tarjeta">
+        <h3 id="subtitle">Cali</h3>
+        <p id="descripcion">Es la tercera ciudad mas grande del pais.</p>
+      </div>
+    </div>
+
+    <div class="map" style="width: 50%">
+      <iframe border-radius="30px" width="100%" height="600" frameborder="0" scrolling="no" marginheight="0"
+        marginwidth="0"
+        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Les%20Rambles,%201%20Barcelona,%20Spain+(Mi%20nombre%20de%20egocios)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+        <a
+          href="https://www.gps.ie/car-satnav-gps/">GPS car tracker
+        </a>
+        </iframe>
+        </div>
+  </section>
+
+
+  <section id="seccion3">
+    <div class="form-container">
+      <h2>
+        Gestor de Departamentos
+      </h2>
+      <form id="add-route-form">
+        <div class="form-group">
+          <label for="dpto-name-input">
+            Nombre de Departamento:
+          </label>
+          <input type="text" id="dpto-name-input" placeholder="Nombre de Departamento" required>
+        </div>
+        <button class="crear" type="submit">
+          Registrar
+        </button>
+      </form>
+    </div>
+
+    <!-- Filtrar Departamentos -->
+    <h2 class="subH2">
+      Filtrar Departamentos
+    </h2>
+    <input type="text" id="buscador-departamentos" placeholder="Buscar por nombre de Departamento">
+    <p id="mensaje-departamento"></p>
+
+    <!-- Tabla de Rutas -->
+    <div id="tablaDpto">
+      <h2>
+        Tabla de Departamentos
+      </h2>
+      <table id="listaDpto">
+        <thead>
+          <tr>
+            <th>
+              ID
+            </th>
+            <th>
+              Departamento
+            </th>
+            <th>
+              Acciones
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Los elementos de la lista se agregaran dinamicamente aqui -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="seccion4">
+    <div class="form-container">
+      <h2>
+        Gestor de Ciudades
+      </h2>
+      <form id="add-point-form">
+        <div class="form-group">
+          <label for="city-name-input">
+            Nombre de la Ciudad:
+          </label>
+          <input type="text" id="city-name-input" placeholder="Nombre de la Ciudad" required>
+        </div>
+        <div class="form-group">
+          <label for="city-image-input">
+            Imagen de la Ciudad:
+          </label>
+          <input type="text" id="city-image-input" placeholder="Imagen de la Ciudad" required>
+        </div>
+        <div class="form-group">
+          <label for="route-select">DptoID:</label>
+          <select id="route-select" required>
+            <!-- Las opciones de ruta se agregaran dinamicamente aqui -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="point-coordenadas-input">
+            Coordenadas:
+          </label>
+          <input type="text" id="city-image-input" placeholder="Coordenadas de la Ciudad" required>
+        </div>
+        <button class="crear" type="submit">
+          Agregar Punto
+        </button>
+      </form>
+    </div>
+
+    <!-- Filtrar Ciudades -->
+    <h2 class="subH2">
+      Filtrar Ciudades
+    </h2>
+    <input type="text" id="buscador-ciudades" placeholder="Buscar por nombre de Ciudad o DptoID">
+    <p id="mensaje-ciudades"></p>
+
+    <!-- Tabla de ciudades -->
+    <div id="tablaCiudades">
+      <h2>
+        Tabla de Ciudades
+      </h2>
+      <table id="listaCiudades">
+        <thead>
+          <tr>
+            <th>
+              ID
+            </th>
+            <th>
+              Ciudad
+            </th>
+            <th>
+              DptoID
+            </th>
+            <th>
+              Imagen
+            </th>
+            <th>
+              Coordenadas
+            </th>
+            <th>
+              Acciones
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Los elementos de la lista se agregaran dinamicamente aqui -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="footer">
+    <p>Copyright &copy; All Right Reserved | Designed <span class="span">By Bolivar</span> 2023
+    </p>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
+</body>
+
+</html>
